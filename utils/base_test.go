@@ -29,4 +29,10 @@ func Test_Contain(t *testing.T) {
 	ok, err = Contains(s, iMap)
 	fmt.Printf("i in iMap = %t , err(%v)\n", ok, err)
 
+	ok, err = Contains(i, iMap)
+	fmt.Printf("i in iMap = %t , err(%v)\n", ok, err)
+
+	ok, err = Contains(i, sMap)
+	fmt.Printf("i in iMap = %t , err(%v)\n", ok, err)
+
 }
