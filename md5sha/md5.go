@@ -5,9 +5,10 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"time"
 )
 
-func File(filename string) (s string, err error) {
+func File(filename string) (sha string, err error) {
 	f, err := os.Open(filename)
 	if err != nil {
 		// log.Fatal(err)
@@ -24,6 +25,14 @@ func File(filename string) (s string, err error) {
 	return fmt.Sprintf("%x", h.Sum(nil)), nil
 }
 
+func MustFile(filename string) (sha string) {
+	sha, err := File(filename)
+	if err != nil {
+		panic(err)
+	}
+	return
+}
+
 func String(str string) (sha string, err error) {
 
 	h := md5.New()
@@ -34,4 +43,18 @@ func String(str string) (sha string, err error) {
 
 	return fmt.Sprintf("%x", h.Sum(nil)), nil
 
+}
+
+func MustString(str string) (sha string) {
+	sha, err := String(str)
+	if err != nil {
+		panic(err)
+	}
+	return
+}
+
+// Time return current time md5sha
+func Time() (sha string) {
+	ts := time.Now().UnixNano()
+	return MustString(fmt.Sprint(ts))
 }
