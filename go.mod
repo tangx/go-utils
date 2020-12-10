@@ -1,4 +1,4 @@
-module github.com/tangx/go-utils
+module github.com/tangx/goutils
 
 go 1.15
 
