@@ -5,6 +5,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.2.0](https://github.com/tangx/goutils/compare/v1.1.2...v1.2.0)
+
+### Features
+
+* **feat** add viperx : initial viper ([5ba0bdd](https://github.com/tangx/goutils/commit/5ba0bdd856bc56b63b54658cbb4dd5112bf6baf9))
+
+
+
 # [1.1.2](https://github.com/tangx/goutils/compare/v1.1.1...v1.1.2)
 
 ### Bug Fixes
