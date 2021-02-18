@@ -5,6 +5,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.1.1](https://github.com/tangx/goutils/compare/v1.1.0...v1.1.1)
+
+### Bug Fixes
+
+* **fix** 修复package name ([f04ff3c](https://github.com/tangx/goutils/commit/f04ff3c8eabd032d9e68a9efc4deb7cb82eb8921))
+
+
+
 # [1.1.0](https://github.com/tangx/goutils/compare/v1.0.1...v1.1.0)
 
 ### Features
