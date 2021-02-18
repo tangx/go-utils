@@ -1,4 +1,4 @@
-package zipx
+package archivex
 
 import (
 	"archive/zip"
