@@ -5,6 +5,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.1.2](https://github.com/tangx/goutils/compare/v1.1.1...v1.1.2)
+
+### Bug Fixes
+
+* **fix** 增加 file 时间戳对比 ([f15d0db](https://github.com/tangx/goutils/commit/f15d0db8d438162c23167eb66a4c7386afdb3dd6))
+
+
+
 # [1.1.1](https://github.com/tangx/goutils/compare/v1.1.0...v1.1.1)
 
 ### Bug Fixes
