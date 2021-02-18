@@ -5,6 +5,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.1.0](https://github.com/tangx/goutils/compare/v1.0.1...v1.1.0)
+
+### Features
+
+* **feat** add zipx : zip archive ([a84eb73](https://github.com/tangx/goutils/commit/a84eb7313367855ef1913bb13f1290d86042077a))
+* **feat** add filex: dir walk ([f1257ee](https://github.com/tangx/goutils/commit/f1257ee3eb598b649e8bbde42bae39cf5730cc0c))
+* **feat** add filex: file check ([58d59d0](https://github.com/tangx/goutils/commit/58d59d04e0eefeb351a3e2659d43c17212469c59))
+* **feat** add logx/logrus initial ([8dfabbd](https://github.com/tangx/goutils/commit/8dfabbd1f75eb4c71a27e2a93b2411bf711fe549))
+
+
+
 # [1.0.1](https://github.com/tangx/goutils/compare/v1.0.0...v1.0.1)
 
 ### Bug Fixes
