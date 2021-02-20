@@ -9,17 +9,17 @@ var (
 
 func Default() {
 	SetConfigName("config")
-	AddTypes(configTypes...)
-	AddConfigPath(configPaths...)
+	AddConfigTypes(configTypes...)
+	AddConfigPaths(configPaths...)
 }
 
-func AddTypes(types ...string) {
+func AddConfigTypes(types ...string) {
 	for _, tpe := range types {
 		viper.SetConfigType(tpe)
 	}
 }
 
-func AddConfigPath(paths ...string) {
+func AddConfigPaths(paths ...string) {
 	for _, path := range paths {
 		viper.AddConfigPath(path)
 	}
@@ -29,7 +29,8 @@ func SetConfigName(name string) {
 	viper.SetConfigName(name)
 }
 
-func MustReadInConfig() {
+func MustReadInConfig(paths ...string) {
+	AddConfigPaths(paths...)
 	err := viper.ReadInConfig()
 	if err != nil {
 		panic(err)
