@@ -5,6 +5,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.2.1](https://github.com/tangx/goutils/compare/v1.2.0...v1.2.1)
+
+### Bug Fixes
+
+* **fix** 修复了viperx 函数变量引用错误 ([24c36a5](https://github.com/tangx/goutils/commit/24c36a53cefa08dfa7aba7232b492673aeb66779))
+
+
+
 # [1.2.0](https://github.com/tangx/goutils/compare/v1.1.2...v1.2.0)
 
 ### Features
