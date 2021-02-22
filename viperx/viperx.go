@@ -1,6 +1,9 @@
 package viperx
 
-import "github.com/spf13/viper"
+import (
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/viper"
+)
 
 var (
 	configTypes = []string{"yaml", "yml"}
@@ -30,9 +33,18 @@ func SetConfigName(name string) {
 }
 
 func MustReadInConfig(paths ...string) {
-	AddConfigPaths(paths...)
-	err := viper.ReadInConfig()
+	err := ReadInConfig(paths...)
 	if err != nil {
 		panic(err)
 	}
+}
+
+func ReadInConfig(paths ...string) error {
+	AddConfigPaths(paths...)
+	err := viper.ReadInConfig()
+	if err != nil {
+		logrus.Warning(err.Error())
+		return err
+	}
+	return nil
 }
