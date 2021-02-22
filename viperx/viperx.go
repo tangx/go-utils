@@ -1,6 +1,8 @@
 package viperx
 
 import (
+	"strings"
+
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
@@ -47,4 +49,9 @@ func ReadInConfig(paths ...string) error {
 		return err
 	}
 	return nil
+}
+
+func SetEnvKeyReplacer(oldnew ...string) {
+	rep := strings.NewReplacer(oldnew...)
+	viper.SetEnvKeyReplacer(rep)
 }
