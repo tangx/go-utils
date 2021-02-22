@@ -1,14 +1,14 @@
 package filex
 
 import (
-	"os"
+	"io/ioutil"
 	"path/filepath"
 
 	"github.com/sirupsen/logrus"
 )
 
 func Walkdir(dirpath string, recursive bool) ([]string, error) {
-	fsList, err := os.ReadDir(dirpath)
+	fsList, err := ioutil.ReadDir(dirpath)
 	if err != nil {
 		return nil, err
 	}
