@@ -5,7 +5,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.2.3](https://github.com/tangx/goutils/compare/v1.2.2...v1.2.3)
+
+### Bug Fixes
+
+* **fix** 兼容 go1.16 之前 ([373dfb5](https://github.com/tangx/goutils/commit/373dfb5a66c5e743132091d0f4b9768b3f4b751a))
+
+
+
 # [1.2.2](https://github.com/tangx/goutils/compare/v1.2.1...v1.2.2)
+
 
 
 # [1.2.1](https://github.com/tangx/goutils/compare/v1.2.0...v1.2.1)
