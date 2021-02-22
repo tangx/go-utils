@@ -5,6 +5,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.2.4](https://github.com/tangx/goutils/compare/v1.2.3...v1.2.4)
+
+### Bug Fixes
+
+* **fix** viperx read with warning ([b436c7b](https://github.com/tangx/goutils/commit/b436c7be044d79fc92ae9caaa509766c64d1a1fd))
+
+
+
 # [1.2.3](https://github.com/tangx/goutils/compare/v1.2.2...v1.2.3)
 
 ### Bug Fixes
