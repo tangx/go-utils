@@ -5,6 +5,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.2.5](https://github.com/tangx/goutils/compare/v1.2.4...v1.2.5)
+
+
 # [1.2.4](https://github.com/tangx/goutils/compare/v1.2.3...v1.2.4)
 
 ### Bug Fixes
