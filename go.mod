@@ -3,6 +3,7 @@ module github.com/tangx/goutils
 go 1.16
 
 require (
+	github.com/gin-gonic/gin v1.6.3
 	github.com/magefile/mage v1.11.0 // indirect
 	github.com/onsi/gomega v1.10.5
 	github.com/sirupsen/logrus v1.8.0
