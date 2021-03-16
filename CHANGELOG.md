@@ -5,7 +5,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.3.0](https://github.com/tangx/goutils/compare/v1.2.5...v1.3.0)
+
+### Features
+
+* **feat** add ginx ([071027e](https://github.com/tangx/goutils/commit/071027eb816d2cf0f3d3e4a03bb8844ea53c13cf))
+
+
+
 # [1.2.5](https://github.com/tangx/goutils/compare/v1.2.4...v1.2.5)
+
 
 
 # [1.2.4](https://github.com/tangx/goutils/compare/v1.2.3...v1.2.4)
