@@ -11,6 +11,7 @@ import (
 var (
 	ignoredPathPatterns = "/(liveness|healthy)$"
 	ignoredLogRegexp    = regexp.MustCompile(ignoredPathPatterns)
+	jsonFormatter       = `{"time":"%s","client_ip":"%s","status":"%d","method":"%s","path":"%s","err_msg":"%s","latency":"%s"}` + "\n"
 )
 
 // GinLogger is the default log format function Logger middleware uses.
@@ -24,7 +25,6 @@ var defaultLoggerFormatter = func(param gin.LogFormatterParams) string {
 		param.Latency = param.Latency - param.Latency%time.Second
 	}
 
-	jsonFormatter := `{"time":"%s","client_ip":"%s","status":"%d","method":"%s","path":"%s","err_msg":"%s","latency":"%s"}`
 	return fmt.Sprintf(jsonFormatter,
 		param.TimeStamp.Format("2006/01/02T15:04:05Z"),
 		param.ClientIP,
