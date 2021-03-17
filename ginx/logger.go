@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	ignoredPathPatterns = "[/liveness|/healthy]$"
+	ignoredPathPatterns = "/(liveness|healthy)$"
 	ignoredLogRegexp    = regexp.MustCompile(ignoredPathPatterns)
 )
 
