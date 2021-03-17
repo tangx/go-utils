@@ -5,6 +5,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.3.1](https://github.com/tangx/goutils/compare/v1.3.0...v1.3.1)
+
+### Bug Fixes
+
+* **fix** fix ginx regexp pattern error ([7040605](https://github.com/tangx/goutils/commit/7040605fa08360950d3decb812faaa8a77bb6011))
+
+
+
 # [1.3.0](https://github.com/tangx/goutils/compare/v1.2.5...v1.3.0)
 
 ### Features
