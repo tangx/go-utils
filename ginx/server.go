@@ -7,7 +7,7 @@ import (
 func Default() *gin.Engine {
 	server := gin.New()
 
-	server.Use(defaultLogger())
+	server.Use(LogHandlerFuncWithIgnorePath())
 	server.Use(gin.Recovery())
 
 	return server
