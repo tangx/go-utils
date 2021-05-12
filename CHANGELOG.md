@@ -5,7 +5,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.4.0](https://github.com/tangx/goutils/compare/v1.3.3...v1.4.0)
+
+### Features
+
+* **feat** add http mimes ([b249eec](https://github.com/tangx/goutils/commit/b249eec1a2950c6765f274f56c7463e2fd1730fc))
+
+
+
 # [1.3.3](https://github.com/tangx/goutils/compare/v1.3.2...v1.3.3)
+
 
 
 # [1.3.2](https://github.com/tangx/goutils/compare/v1.3.1...v1.3.2)
