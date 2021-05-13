@@ -5,6 +5,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.5.0](https://github.com/tangx/goutils/compare/v1.4.0...v1.5.0)
+
+### Features
+
+* **feat** add regex named pattern match ([4581120](https://github.com/tangx/goutils/commit/4581120192daab95d1e3878a7d3d2989c1aaa2e5))
+
+
+
 # [1.4.0](https://github.com/tangx/goutils/compare/v1.3.3...v1.4.0)
 
 ### Features
