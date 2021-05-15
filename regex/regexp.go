@@ -8,24 +8,29 @@ import (
 // Regex 主要用于正则表达式 **命名字段** 的匹配和获取
 // 参考 https://stackoverflow.com/a/20751656
 type Regex struct {
-	re   *regexp.Regexp
+	*regexp.Regexp
 	smap map[string]string
 	bmap map[string][]byte
 }
 
 func MustNew(expr string) *Regex {
-	return &Regex{
-		re:   regexp.MustCompile(expr),
-		smap: make(map[string]string),
-		bmap: make(map[string][]byte),
+	re, err := New(expr)
+	if err != nil {
+		panic(err)
 	}
+	return re
 }
 func New(expr string) (*Regex, error) {
 	re, err := regexp.Compile(expr)
 	if err != nil {
 		return nil, fmt.Errorf("regex compile failed %v", err)
 	}
-	return &Regex{re: re}, nil
+	regx := &Regex{
+		re,
+		make(map[string]string),
+		make(map[string][]byte),
+	}
+	return regx, nil
 }
 
 // FindStringNamedSubmatch 匹配并获取命名字符串
@@ -33,10 +38,10 @@ func (r *Regex) FindStringNamedSubmatch(s string) *Regex {
 	result := make(map[string]string)
 
 	// FindStringSubmatch 返回匹配信息数组
-	match := r.re.FindStringSubmatch(s)
+	match := r.FindStringSubmatch(s)
 
 	// SubexpNames 获取返回 named 字段
-	for i, name := range r.re.SubexpNames() {
+	for i, name := range r.SubexpNames() {
 		if i != 0 && name != "" {
 			result[name] = match[i]
 		}
@@ -51,10 +56,10 @@ func (r *Regex) FindStringNamedSubmatch(s string) *Regex {
 func (r *Regex) FindNamedSubmatch(b []byte) *Regex {
 
 	// FindStringSubmatch 返回匹配信息数组
-	match := r.re.FindSubmatch(b)
+	match := r.FindSubmatch(b)
 
 	// SubexpNames 获取返回 named 字段
-	for i, name := range r.re.SubexpNames() {
+	for i, name := range r.SubexpNames() {
 		if i != 0 && name != "" {
 			r.bmap[name] = match[i]
 		}
