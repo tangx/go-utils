@@ -1,6 +1,7 @@
 
 hooks:
   pre-commit:
+    - go mod tidy
     - golangci-lint run
     - husky lint-staged
   commit-msg:
