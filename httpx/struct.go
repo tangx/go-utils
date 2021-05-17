@@ -13,8 +13,8 @@ import (
 //     example: https://ai.qq.com/doc/auth.shtml
 //   使用 map[string]string 传参后在使用 for 循环就很方便
 //   为了保留 **注释即文档** 的特性， 因此常常选用 struct 作为参数管理。
-func StructToHashmap(v interface{}, params map[string]string) error {
 
+func StructToHashmap(v interface{}, params map[string]string) error {
 	// 获取对象的反射值
 	// valueof 获取反射值
 	// indirect 获取真是反射值。 即， 如果对象是指针， 则返回指针指向的内容
@@ -25,6 +25,12 @@ func StructToHashmap(v interface{}, params map[string]string) error {
 		return fmt.Errorf("want a struct, but got a %#v", rv.Kind())
 	}
 
+	return structToHashmap(rv, params, "")
+
+}
+
+func structToHashmap(rv reflect.Value, params map[string]string, parent string) error {
+
 	// 获取对象的 反射类型
 	rt := rv.Type()
 
@@ -34,7 +40,7 @@ func StructToHashmap(v interface{}, params map[string]string) error {
 	for i := 0; i < rv.NumField(); i++ {
 		// 字段信息
 		// fv => filed value。 字段值
-		fv := rv.Field(i)
+		fv := reflect.Indirect(rv.Field(i))
 		// ft => filed type。 字段类型
 		ft := rt.Field(i)
 
@@ -46,12 +52,25 @@ func StructToHashmap(v interface{}, params map[string]string) error {
 		}
 
 		// tag 第一个值为 tagname
-		name := tagname(tag)
-		// 如果 tag 没有定义name，或字段为空，则默认为字段名称
+		parts := strings.Split(tag, ",")
+		name := tagname(parts)
+		// 如果 tag 没有定义name，或字段为空
+		// 规则为 parent.filedname
 		if name == "" {
-			name = strings.ToLower(ft.Name)
+			name = ft.Name
 		}
 
+		// inline 内联模式, 结构体中的同名 tag 可能覆盖与被覆盖, 取决于其相对位置
+		// 否则字段名默认为字段名称与父字段的组合 Parent__Filedname
+		inlineSep := `__`
+		if !isInline(parts) {
+			name = strings.Trim(strings.Join([]string{parent, name}, inlineSep), inlineSep)
+		}
+
+		// 如果字段是 struct 结构，则递归循环。
+		if fv.Kind() == reflect.Struct {
+			structToHashmap(fv, params, name)
+		}
 		switch fv.Interface().(type) {
 		case string:
 			params[name] = fv.String()
@@ -65,19 +84,29 @@ func StructToHashmap(v interface{}, params map[string]string) error {
 			params[name] = strconv.FormatBool(fv.Bool())
 
 			// default:
-			// 	return fmt.Errorf("unsupported filed type: %s -> %v", rt.Name(), rv.Type().String())
+			// 	return fmt.Errorf("unsupported filed type: %s -> %#v", rt.Name(), rv.Type())
 		}
 	}
 
 	return nil
 }
 
-func tagname(tag string) string {
-	parts := strings.Split(tag, ",")
+func tagname(parts []string) string {
 
 	if len(parts) > 0 {
 		return parts[0]
 	}
 
 	return ""
+}
+
+func isInline(parts []string) bool {
+
+	for _, value := range parts {
+		if value == "inline" {
+			return true
+		}
+	}
+
+	return false
 }
