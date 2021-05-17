@@ -3,7 +3,6 @@ package httpx
 import (
 	"testing"
 
-	"github.com/davecgh/go-spew/spew"
 	. "github.com/onsi/gomega"
 	"github.com/sirupsen/logrus"
 )
@@ -44,7 +43,6 @@ func Test_StructHashmap(t *testing.T) {
 		logrus.Fatalf("hashmap failed: %v", err)
 	}
 
-	spew.Dump(params)
 	t.Run("StructHashMap", func(t *testing.T) {
 		NewWithT(t).Expect(params["name"]).To(Equal("zhangsan")) // 被 addr.name 覆盖了
 		NewWithT(t).Expect(params["Age"]).To(Equal("20"))
