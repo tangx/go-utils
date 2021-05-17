@@ -5,7 +5,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.6.0](https://github.com/tangx/goutils/compare/v1.5.1...v1.6.0)
+
+### Bug Fixes
+
+* **fix** 删除 spew 依赖 ([3432177](https://github.com/tangx/goutils/commit/34321779571fb8bbbe83f7efe17d48221ed843eb))
+
+
+### Features
+
+* **feat** httpx 增加 struct 转 hashmap ([e833688](https://github.com/tangx/goutils/commit/e833688ab81d5b01659e399a494f26d8309f88c4))
+
+
+
 # [1.5.1](https://github.com/tangx/goutils/compare/v1.5.0...v1.5.1)
+
 
 
 # [1.5.0](https://github.com/tangx/goutils/compare/v1.4.0...v1.5.0)
