@@ -5,6 +5,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+# [1.5.3](https://github.com/tangx/goutils/compare/v1.5.2...v1.5.3)
+
+### Bug Fixes
+
+* **fix** 返回值错误处理 ([d977c50](https://github.com/tangx/goutils/commit/d977c502af29bd204749e50b64032c829a71dbb2))
+
+
+
 # [1.6.0](https://github.com/tangx/goutils/compare/v1.5.1...v1.6.0)
 
 ### Bug Fixes
