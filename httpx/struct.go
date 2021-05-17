@@ -25,8 +25,11 @@ func StructToHashmap(v interface{}, params map[string]string) error {
 		return fmt.Errorf("want a struct, but got a %#v", rv.Kind())
 	}
 
-	return structToHashmap(rv, params, "")
+	if err := structToHashmap(rv, params, ""); err != nil {
+		return fmt.Errorf("parse struct to hashmap failed: %v", err)
+	}
 
+	return nil
 }
 
 func structToHashmap(rv reflect.Value, params map[string]string, parent string) error {
@@ -63,13 +66,18 @@ func structToHashmap(rv reflect.Value, params map[string]string, parent string) 
 		// inline 内联模式, 结构体中的同名 tag 可能覆盖与被覆盖, 取决于其相对位置
 		// 否则字段名默认为字段名称与父字段的组合 Parent__Filedname
 		inlineSep := `__`
-		if !isInline(parts) {
-			name = strings.Trim(strings.Join([]string{parent, name}, inlineSep), inlineSep)
+		if !isInline(parts) && parent != "" {
+			// tmpname := strings.Join([]string{parent, name}, inlineSep)
+			// name = strings.Trim(tmpname, inlineSep) // error: SA1024: cutset contains duplicate characters (staticcheck)
+
+			name = fmt.Sprintf("%s%s%s", parent, inlineSep, name)
 		}
 
 		// 如果字段是 struct 结构，则递归循环。
 		if fv.Kind() == reflect.Struct {
-			structToHashmap(fv, params, name)
+			if err := structToHashmap(fv, params, name); err != nil {
+				return err
+			}
 		}
 		switch fv.Interface().(type) {
 		case string:
